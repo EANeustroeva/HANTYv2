@@ -1,0 +1,26 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: absolute;
+    right: -67px;
+    top: 15%;
+    padding: 10px;
+}
+.list li {
+    display: inline-block;
+}
+.list li a {
+    display: inline-block;
+    padding: 10px;
+}
+.list li a:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}

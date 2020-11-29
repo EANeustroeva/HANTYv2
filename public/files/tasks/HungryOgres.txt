@@ -1,0 +1,35 @@
+public class HungryOgres {
+    private static final CyclicBarrier BARRIER = new CyclicBarrier(5,new Cook());
+    public static void main(String args[]){
+        for (int i=0; i<100; i++){
+            new Thread(new Ogre(i)).start();
+            try{Thread.sleep(700);}catch (Exception e){}
+        }
+    }
+
+    public static class Ogre implements Runnable{
+        private int ogreNumber;
+        public Ogre(int ogreNumber){
+            this.ogreNumber = ogreNumber;
+        }
+
+        @Override
+        public void run(){
+           // try{Thread.sleep(1200);} catch (Exception e){}
+            System.out.println("Людоед " +ogreNumber+ " проголодался");
+           try{
+               BARRIER.await();}catch(Exception e){}
+            System.out.println("Людоед " +ogreNumber+ " покушал");
+        }
+    }
+
+    public static class Cook implements Runnable{
+
+        @Override
+        public void run(){
+            try{Thread.sleep(500);} catch (Exception e){}
+            System.out.println("Повар приготовил поесть");
+        }
+    }
+
+}
